@@ -1,0 +1,11 @@
+/.*
+/*
+!/config.rb.dst
+!/vagrant/
+!/.gitignore
+!/Vagrantfile
+!/README.md
+!/LICENSE
+!/composer.json
+
+/vendor/
