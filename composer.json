@@ -1,12 +1,19 @@
 {
-    "name": "ecomdev/fast-hypernode",
-    "description": "Fast Hypernode Project Setup",
+    "name": "claudiucreanga/magento2-vagrant",
+    "description": "Magento2 hypernode vagrant box",
     "type": "project",
     "license": "MIT",
     "authors": [
         {
+            "name": "Claudiu Creanga",
+            "email": "claudiu@limesharp.net",
+            "homepage": "http://claudiucreanga.me",
+            "role": "Developer"
+        },
+        {
             "name": "Ivan Chepurnyi",
-            "email": "ivan.chepurnyi@ecomdev.org"
+            "email": "ivan.chepurnyi@ecomdev.org",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "stable",
