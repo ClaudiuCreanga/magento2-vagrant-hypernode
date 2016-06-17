@@ -12,10 +12,8 @@ Based on:
 Installation is possible via composer:
 
 ```bash
-1) composer create-project --keep-vcs ecomdev/fast-hypernode
+1) composer create-project claudiucreanga/magento2-vagrant
 ```
-
-
 
 # Required Vagrant plugins
 
@@ -41,18 +39,56 @@ memory 3072
 ```
 4. Start the box (it will take about ~45 minutes)
 ```bash
-cd fast-hypernode
+cd magento2-vagrant
 vagrant up
 ```
 
 5. Build your magento2 project (install nodejs, npm etc.)
 ```bash
 vagrant ssh
+# install nodejs 5
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 sudo apt-get install nodejs
 
+# inside /data/web/public/ you can find your files from server/public directory
+cd /data/web/public/
+
+# install npm packages and grunt globally
+sudo npm install
+sudo npm install -g grunt-cli
 ```
 
+6. Setup your database
+```bash
+# find you MySQL password in /data/web/.my.cnf by loging in to SSH
+cat /data/web/.my.cnf
+mysql -u app -p
+# create database and/or import an already existing one
+```
+
+7. Clone an already existing project or create a new magento2 project with composer. You can do it inside your vagrant machine or on your local machine depending where you will want to do your git work.
+
+8. Magento bash
+```bash
+# always work as the app user so that you will not get permission errors when magento generates files
+sudo su app
+# open your bash profile
+sudo nano ~/.bashrc
+# add this line into your bash profile
+export PATH=$PATH:/data/web/public/bin
+# then refresh your profile
+source ~/.bashrc
+# then give permissions to magento
+sudo chmod a+x /data/web/public/bin/magento
+# give permissions to magento folders
+sudo chown -R app:app /data/web/public/
+sudo chmod -R 777 var/ lib/ pub/ app/etc/
+# test that everything is fine, inside /data/web/public/ directory type
+magento list
+# you should receive the list of magento commands, now deploy your static files
+magento setup:static-content:deploy
+# and visit the domain.box
+```
 
 # Configuration Options
 
