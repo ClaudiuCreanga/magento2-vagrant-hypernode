@@ -12,7 +12,7 @@ Based on:
 Installation is possible via composer:
 
 ```bash
-1) composer create-project claudiucreanga/magento2-vagrant
+1. composer create-project claudiucreanga/magento2-vagrant
 ```
 
 # Required Vagrant plugins
@@ -22,7 +22,7 @@ Installation is possible via composer:
 * vagrant-nfs_guest
 
 ```bash
-2) vagrant plugin install vagrant-hostmanager vagrant-auto_network vagrant-nfs_guest
+2. vagrant plugin install vagrant-hostmanager vagrant-auto_network vagrant-nfs_guest
 ```
 
 # Usage
@@ -88,6 +88,15 @@ magento list
 # you should receive the list of magento commands, now deploy your static files
 magento setup:static-content:deploy
 # and visit the domain.box
+```
+
+9. Day to day work
+```bash
+cd magento2-vagrant
+vagrant ssh
+cd /data/web/public/
+sudo su app
+grunt task
 ```
 
 # Configuration Options
