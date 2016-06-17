@@ -1,6 +1,6 @@
 /.*
 /*
-!/config.rb.dst
+!/config.rb
 !/vagrant/
 !/.gitignore
 !/Vagrantfile
