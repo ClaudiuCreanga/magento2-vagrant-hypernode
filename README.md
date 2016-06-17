@@ -4,8 +4,8 @@
 Fast Byte Hypernode Box (Uses nfs_guest plugin for file shares)
 
 Based on:
-https://github.com/EcomDev/fast-hypernode
-https://github.com/byteinternet/hypernode-vagrant
+* https://github.com/EcomDev/fast-hypernode
+* https://github.com/byteinternet/hypernode-vagrant
 
 # Installation
 
@@ -19,24 +19,40 @@ Installation is possible via composer:
 
 # Required Vagrant plugins
 
-* vagrant-hostmanager 
+* vagrant-hostmanager
 * vagrant-auto_network
 * vagrant-nfs_guest
 
+```bash
 2) vagrant plugin install vagrant-hostmanager vagrant-auto_network vagrant-nfs_guest
+```
 
 # Usage
 
-1. Copy config.rb.dst to config.rb
-2. Edit it to reflect your project settings
+3. Edit config.rb to reflect your project settings (configuration options at the bottom of the page)
 ```ruby
 name 'your-project-name'
 hostname name + '.box' # will be your main url http://your-project-name.box/
-domains %w(www.your-project-name-additional.box) # additional domain names separated by space
 profiler true # Add tideways-profiler ?
 developer true # Enable development mode?
 directory 'server' # Directory into which NFS share will be mounted on your host
+php7 true
+memory 3072
 ```
+4. Start the box (it will take about ~45 minutes)
+```bash
+cd fast-hypernode
+vagrant up
+```
+
+5. Build your magento2 project (install nodejs, npm etc.)
+```bash
+vagrant ssh
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install nodejs
+
+```
+
 
 # Configuration Options
 
