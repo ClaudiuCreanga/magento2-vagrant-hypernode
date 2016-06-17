@@ -1,6 +1,6 @@
 # Fast Hypernode Vagrant Box
 
-**The fastest Magento Vagrant VM**
+**The fastest Magento2 Vagrant VM**
 Fast Byte Hypernode Box (Uses nfs_guest plugin for file shares)
 
 Based on:
