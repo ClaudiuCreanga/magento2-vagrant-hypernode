@@ -12,7 +12,7 @@ Based on:
 Installation is possible via composer:
 
 ```bash
-1. composer create-project claudiucreanga/magento2-vagrant
+1) composer create-project claudiucreanga/magento2-vagrant
 ```
 
 # Required Vagrant plugins
@@ -22,12 +22,12 @@ Installation is possible via composer:
 * vagrant-nfs_guest
 
 ```bash
-2. vagrant plugin install vagrant-hostmanager vagrant-auto_network vagrant-nfs_guest
+2) vagrant plugin install vagrant-hostmanager vagrant-auto_network vagrant-nfs_guest
 ```
 
 # Usage
 
-3. Edit config.rb to reflect your project settings (configuration options at the bottom of the page)
+3) Edit config.rb to reflect your project settings (configuration options at the bottom of the page)
 ```ruby
 name 'your-project-name'
 hostname name + '.box' # will be your main url http://your-project-name.box/
@@ -37,13 +37,13 @@ directory 'server' # Directory into which NFS share will be mounted on your host
 php7 true
 memory 3072
 ```
-4. Start the box (it will take about ~45 minutes)
+4) Start the box (it will take about ~45 minutes)
 ```bash
 cd magento2-vagrant
 vagrant up
 ```
 
-5. Build your magento2 project (install nodejs, npm etc.)
+5) Build your magento2 project (install nodejs, npm etc.)
 ```bash
 vagrant ssh
 # install nodejs 5
@@ -58,7 +58,7 @@ sudo npm install
 sudo npm install -g grunt-cli
 ```
 
-6. Setup your database
+6) Setup your database
 ```bash
 # find you MySQL password in /data/web/.my.cnf by loging in to SSH
 cat /data/web/.my.cnf
@@ -66,9 +66,9 @@ mysql -u app -p
 # create database and/or import an already existing one
 ```
 
-7. Clone an already existing project or create a new magento2 project with composer. You can do it inside your vagrant machine or on your local machine depending where you will want to do your git work.
+7) Clone an already existing project or create a new magento2 project with composer. You can do it inside your vagrant machine or on your local machine depending where you will want to do your git work.
 
-8. Magento bash
+8) Magento bash
 ```bash
 # always work as the app user so that you will not get permission errors when magento generates files
 sudo su app
@@ -90,7 +90,7 @@ magento setup:static-content:deploy
 # and visit the domain.box
 ```
 
-9. Day to day work
+9) Day to day work
 ```bash
 cd magento2-vagrant
 vagrant ssh
