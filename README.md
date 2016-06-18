@@ -9,10 +9,10 @@ Based on:
 
 # Installation
 
-Installation is possible via composer:
+1) Installation is possible via composer:
 
 ```bash
-1) composer create-project claudiucreanga/magento2-vagrant
+composer create-project claudiucreanga/magento2-vagrant
 ```
 
 # Required Vagrant plugins
