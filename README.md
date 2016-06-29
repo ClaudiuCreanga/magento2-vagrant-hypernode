@@ -3,8 +3,9 @@
 **The fastest Magento2 Vagrant VM**
 Fast Byte Hypernode Box (Uses nfs_guest plugin for file shares)
 
-Based on:
+Close mirror of:
 * https://github.com/EcomDev/fast-hypernode
+which is based on:
 * https://github.com/byteinternet/hypernode-vagrant
 
 # Installation
