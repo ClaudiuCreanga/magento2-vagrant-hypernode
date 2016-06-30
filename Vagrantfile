@@ -25,6 +25,7 @@ VagrantApp::Config.option(:varnish, false) # If varnish needs to be enabled
   .option(:uid, Process.euid) # User ID for mapping
   .option(:gid, Process.egid) # Group ID for mapping
   .option(:directory, 'server') # Directory to be used as mount on host machine
+  .option(:nodejs, true) # Directory to be used as mount on host machine
   .option(:network, '33.33.33.0/24') # Directory to be used as mount on host machine
 
 Vagrant.configure("2") do |config|
@@ -44,6 +45,7 @@ Vagrant.configure("2") do |config|
     .shell_add('magento2-install.sh', [:magento2, :install]) # M2 Installer, depends on :magento2 and :install
     .shell_add('magento2-developer.sh', [:magento2, :install, :developer]) # M2 Developer options, depends on :magento2, :install, :developer
     .shell_add('shell.sh', :shell) # Fish shell installer, depends on :shell flag
+    .shell_add('nodejs.sh', :nodejs) # Install nodejs and npm
     .shell_add('hello.sh') # Final message with connection instructions
 
   # Loads config.rb from the same directory where Vagrantfile is in
