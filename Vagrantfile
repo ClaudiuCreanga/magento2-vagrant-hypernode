@@ -25,7 +25,7 @@ VagrantApp::Config.option(:varnish, false) # If varnish needs to be enabled
   .option(:uid, Process.euid) # User ID for mapping
   .option(:gid, Process.egid) # Group ID for mapping
   .option(:directory, 'server') # Directory to be used as mount on host machine
-  .option(:nodejs, true) # Directory to be used as mount on host machine
+  .option(:nodejs, true) # Install
   .option(:network, '33.33.33.0/24') # Directory to be used as mount on host machine
 
 Vagrant.configure("2") do |config|
@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
     v.memory = box_config.get(:memory)
     v.cpus =  box_config.get(:cpu)
     v.customize [
-      "modifyvm", :id, 
+      "modifyvm", :id,
       "--paravirtprovider", "kvm" # for linux guest
     ]
   end
